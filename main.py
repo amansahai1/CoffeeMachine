@@ -30,6 +30,8 @@ resources = {
     "coffee": 100,
 }
 
+# TODO Prompt user by asking "What would you like? (espresso/latte/cappuccino):”
 
+user_selection = input("What would you like? (espresso/latte/cappuccino):")
 
-
+print(user_selection)
