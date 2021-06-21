@@ -30,8 +30,26 @@ resources = {
     "coffee": 100,
 }
 
-# TODO Prompt user by asking "What would you like? (espresso/latte/cappuccino):”
 
-user_selection = input("What would you like? (espresso/latte/cappuccino):")
+# TODO Prompt user by asking "What would you like? (espresso/latte/cappuccino):”
+def make_coffee(selection):
+    pass
+
+
+def show_report():
+    pass
+
+
+def turn_machine_off():
+    pass
+
+
+user_selection = input("What would you like? (espresso/latte/cappuccino):").lower()
 
 print(user_selection)
+if user_selection == "latte" or user_selection == "espresso" or user_selection == "cappiccino":
+    make_coffee(user_selection)
+elif user_selection == "report":
+    show_report()
+elif user_selection == "off":
+    turn_machine_off
