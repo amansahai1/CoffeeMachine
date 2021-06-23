@@ -110,7 +110,7 @@ def deplete_resources(user_choice):
         resources["coffee"] = resources["coffee"] - MENU[user_choice]["ingredients"]["coffee"]
 
 
-while machine_on == True:
+while machine_on:
     user_selection = input("What would you like? (espresso - $1.5 /latte - $2.5 /cappuccino - $3.0):").lower()
     # TODO : In case user enters other var than dont execute
     if user_selection == "espresso" or user_selection == "latte" or user_selection == "cappuccino":
