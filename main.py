@@ -31,7 +31,7 @@ resources = {
 }
 
 
-# TODO Prompt user by asking "What would you like? (espresso/latte/cappuccino):”
+#DONE Prompt user by asking "What would you like? (espresso/latte/cappuccino):”
 def make_coffee(selection):
     pass
 
