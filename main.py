@@ -31,7 +31,7 @@ resources = {
 }
 
 
-#DONE Prompt user by asking "What would you like? (espresso/latte/cappuccino):”
+# DONE Prompt user by asking "What would you like? (espresso/latte/cappuccino):”
 def make_coffee(selection):
     pass
 
@@ -46,10 +46,6 @@ def show_report():
     print(f"Money : ${money}")
 
 
-def turn_machine_off():
-    pass
-
-
 def get_cost(user_choice):
     if user_choice == "espresso":
         return_cost = MENU["espresso"]["cost"]
@@ -62,16 +58,40 @@ def get_cost(user_choice):
         return return_cost
 
 
+def check_resources(user_choice):
+    if user_choice == "espresso":
+        if resources["water"] > MENU["espresso"]["ingredients"]["water"] and resources["coffee"] > \
+                MENU["espresso"]["ingredients"]["coffee"]:
+            return True
+        else:
+            return False
+    elif user_choice == "latte":
+        if resources["water"] > MENU["latte"]["ingredients"]["water"] and resources["coffee"] > \
+                MENU["latte"]["ingredients"]["coffee"] and resources["milk"] > MENU["latte"]["ingredients"]["milk"]:
+            return True
+        else:
+            return False
+    elif user_choice == "cappuccino":
+        if resources["water"] > MENU["cappuccino"]["ingredients"]["water"] and resources["coffee"] > \
+                MENU["cappuccino"]["ingredients"]["coffee"] and resources["milk"] > \
+                MENU["cappuccino"]["ingredients"]["milk"]:
+            return True
+        else:
+            return False
+
+
 machine_on = True
 money = 10
 while machine_on == True:
     user_selection = input("What would you like? (espresso - $1.5 /latte - $2.5 /cappuccino - $3.0):").lower()
     # TODO : In case user enters other var than dont execute
-    if user_selection == "espresso" or user_selection == "latte" or user_selection == "cappuccino" :
+    if user_selection == "espresso" or user_selection == "latte" or user_selection == "cappuccino":
         print(get_cost(user_selection))
+        if (check_resources(user_selection)):
+            print("Making coffeee")
+        else:
+            print("Sorry there is not enough water. ")
     elif user_selection == "report":
         show_report()
     elif user_selection == "off":
         machine_on = "False"
-
-
